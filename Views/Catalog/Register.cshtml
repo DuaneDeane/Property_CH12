@@ -1,0 +1,69 @@
+
+<h2>Register Property</h2>
+
+<form>
+  <div class="form-group">
+    <label for="picture">URL Image</label>
+    <input type="text" class="form-control" id="Picture" placeholder="www.image.com">
+  </div>
+
+  <div class="form-group">
+    <label for="address">Proptery Address</label>
+    <input type="text" class="form-control" id="Address" placeholder="#Street,City,State,Zip">
+  </div>
+
+   <div class="form-group">
+    <label for="price">Proptery Price</label>
+    <input type="number" class="form-control" id="Price" placeholder="$xxxxxx">
+  </div>
+  
+  <div class="form-group">
+    <label for="beds">Number of Beds</label>
+    <select class="form-control" id="Beds">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="bath">Number of Baths</label>
+    <select class="form-control" id="Baths">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="size">Area Sqft</label>
+    <input type="number" class="form-control" id="Size" placeholder="xxx sq ft">
+  </div>
+
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea class="form-control" id="Description" placeholder="Ocean view...." rows="5"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="parking">Parking Included</label>
+    <select class="form-control" id="Parking">
+      <option>Yes</option>
+      <option>No</option>
+    </select>
+  </div>
+
+    <div class="form-group row">
+        <div class="col-8 offset-4">
+            <button type="button" id="btnSave" class="btn btn-info">Save Property</button>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <script src="/js/register.js"></script>
+}
