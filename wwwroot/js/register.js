@@ -21,14 +21,10 @@ function saveProperty() {
     var parking = UI.Parking.val() == "yes";
     var price = parseFloat(UI.Price.val());
 
-    if(!price) {
-        alert("Error, verify the price");
-        return;
-    }
+    if(!price || !size) {
+        $("#alertError").removeClass('hide');
 
-    if(!size) {
-        alert("Error, verify the size");
-        return;
+        setTimeout(() => {$("#alertError").addClass('hide')},3000);
     }
 
     var property = new Property(address,picture,size,beds,baths,parking,price,description)
@@ -39,12 +35,18 @@ function saveProperty() {
        type: "POST",
        data: JSON.stringify(property),
        contentType: "application/json",
-       success: (res) => {
+       success: function(res) {
            console.log(res);
            
+           $("#alertSuccess").removeClass('hide');
+
+            setTimeout(function(res){
+                $("#alertSuccess").addClass('hide');
+            },3000);
+
            $(".form-control").val('');
        },
-       error: (details) => {
+       error: function(details) {
             console.log("Error", details);
        }
    });
