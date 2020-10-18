@@ -1,3 +1,4 @@
+console.log("top register js");
 var UI = {};
 
 function Property(
@@ -21,6 +22,7 @@ function Property(
 }
 
 function saveProperty() {
+  console.log("top saveProperty");
   var address = UI.Address.val();
   var picture = UI.Picture.val();
   var description = UI.Description.val();
@@ -48,7 +50,7 @@ function saveProperty() {
     price,
     description
   );
-  console.log(property);
+  console.log("line 53" + property);
 
   $.ajax({
     url: "/catalog/SaveProperty",

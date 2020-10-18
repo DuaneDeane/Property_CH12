@@ -1,3 +1,5 @@
+console.log("top catalog js");
+
 function fetchData() {
   $.ajax({
     url: "/catalog/GetProperties",
@@ -17,16 +19,22 @@ function fetchData() {
 function displayProperty(property) {
   const bedIcon = '<i class="fas fa-bed"></i>';
   const bathIcon = '<i class="fas fa-bath"></i>';
-  var syntax = `<div class='property'>
-        <img src='${property.picture}'>
-        <p>$${property.price}</p>
-        <h5>${property.address}</h5>
-        <h6>${property.size}</h6>
-        <h6>${bedIcon}${property.beds}</h6>
-        <h6>${bathIcon}${property.baths}</h6>
-        <h6>${property.description}</h6>
-        <h6>${property.parking}</h6>
-    </div>`;
+  var syntax = `
+      <div class='property'>
+        <figure>
+          <img src='${property.picture}'>
+          <figcaption>$${property.price}</figcaption>
+        </figure>
+        <dl>
+          <dt>${property.address}<dt>
+          <dd>${property.size} Sqft</dd>
+          <dd>${bedIcon}${property.beds}</dd>
+          <dd>${bathIcon}${property.baths}</dd>
+          <dd>${property.description}</dd>
+          <dd>${property.parking}</dd>
+        </dl>
+      </div>
+      `;
 
   var container = $("#catalog-container");
 
@@ -37,8 +45,9 @@ function init() {
   fetchData();
 }
 
-function testDelete() {
-  var id = 4;
+function testDelete(thisid) {
+  var id = thisid;
+  console.log("aloha");
   $.ajax({
     url: "/catalog/DeleteProperty/" + id,
     type: "DELETE",
@@ -46,7 +55,7 @@ function testDelete() {
       console.log("deleted");
     },
     error: (details) => {
-      console.log("Error", details);
+      console.log("Error xxxx", details);
     },
   });
 }
